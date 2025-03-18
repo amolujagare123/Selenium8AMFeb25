@@ -1,4 +1,5 @@
 <suite name="Project name">
+
     <test name="module 1">
         <classes>
             <class name="TestNG.Demo.ClassOne"/>
