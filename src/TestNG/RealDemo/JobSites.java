@@ -7,14 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class JobSites {
-    WebDriver driver;
+public class JobSites extends Base {
 
-    @BeforeClass
-    public void setUp() {
-         driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void linkedIn() {
@@ -38,10 +32,5 @@ public class JobSites {
         driver.get("https://www.monster.com");
     }
 
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
 }

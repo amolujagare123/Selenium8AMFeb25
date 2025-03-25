@@ -6,14 +6,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class AISites {
-    WebDriver driver;
+public class AISites extends Base{
 
-    @BeforeClass
-    public void setUp() {
-          driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
     public void openAI() {
@@ -35,11 +29,6 @@ public class AISites {
         driver.get("https://www.nvidia.com/en-us/ai/");
     }
 
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
 }
 
