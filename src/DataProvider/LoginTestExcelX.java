@@ -6,6 +6,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,10 +18,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class LoginTestExcel {
+public class LoginTestExcelX {
 
     @Test(dataProvider = "getData")
     public void loginTest1(String username,String password)
@@ -40,13 +43,13 @@ public class LoginTestExcel {
     @DataProvider //(name = "myData")
     Object[][] getData() throws IOException {
         // 1. read the file
-        FileInputStream fis = new FileInputStream("Data/myData.xls");
+        FileInputStream fis = new FileInputStream("Data/myData1.xlsx");
 
         // 2. convert this file object in to the work book object
-        HSSFWorkbook workbook = new HSSFWorkbook(fis);
+        XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
         // 3. get the sheet
-        HSSFSheet sheet = workbook.getSheet("Sheet1");
+        XSSFSheet sheet = workbook.getSheet("Sheet1");
 
         // 4. count active rows and columns
 
@@ -57,14 +60,14 @@ public class LoginTestExcel {
 
         for(int i=0;i<rowCount;i++)
         {
-            HSSFRow row = sheet.getRow(i);
+            XSSFRow row = sheet.getRow(i);
 
           /*  data[i][0] = row.getCell(0).toString();
             data[i][1] = row.getCell(1).toString();*/
 
             for(int j=0;j<colCount;j++) {
 
-                HSSFCell cell = row.getCell(j);
+                XSSFCell cell = row.getCell(j);
 
                 if(cell==null)
                     data[i][j] ="";
